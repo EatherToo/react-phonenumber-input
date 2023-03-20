@@ -1,14 +1,21 @@
-.react-phonenumber-input {
-  border: 1.5px solid #d5d4dc;
-  font-size: 14px;
-  border-radius: 6px;
-  display: flex;
-  overflow: hidden;
-  padding-left: 6px;
-  align-items: center;
-  cursor: pointer;
-}
 .react-phonenumber-input_select {
   outline: none;
   border: none;
+  font-size: 20px;
+}
+.react-phonenumber-input_calling-code {
+  margin-left: 3px;
+  margin-right: 4px;
+  font-size: 14px;
+  display: block;
+  line-height: 16px;
+}
+
+.react-phonenumber-input_input {
+  outline: none;
+  border: none;
+  font-size: 14px;
+  padding: 0;
+  display: block;
+  line-height: 16px;
 }

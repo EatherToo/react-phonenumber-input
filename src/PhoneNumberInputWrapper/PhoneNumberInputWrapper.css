@@ -1,0 +1,12 @@
+.react-phonenumber-input_wrapper {
+  border: 1.5px solid #d5d4dc;
+  font-size: 14px;
+  border-radius: 6px;
+  display: flex;
+  overflow: hidden;
+  padding-left: 6px;
+  align-items: center;
+  cursor: pointer;
+  min-height: 30px;
+  min-width: 280px;
+}
