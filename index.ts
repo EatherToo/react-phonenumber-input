@@ -1,3 +1,3 @@
-import ReactPhonenumberInput from './src/react-phonenumber-input'
+import ReactPhonenumberInput from './src/ReactPhoneNumberInput'
 
 export default ReactPhonenumberInput

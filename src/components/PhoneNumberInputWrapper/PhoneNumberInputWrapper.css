@@ -10,3 +10,7 @@
   min-height: 30px;
   min-width: 280px;
 }
+.react-phonenumber-input_wrapper--invalid {
+  border-color: #f1998e;
+  background-color: #ffefed;
+}
