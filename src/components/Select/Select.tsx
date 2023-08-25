@@ -1,10 +1,7 @@
 import { CountryCode } from 'libphonenumber-js/types'
 import React from 'react'
 import getUnicodeFlagIcon from 'country-flag-icons/unicode'
-import {
-  PhoneNumberOptionProps,
-  PhoneNumberSelectProps,
-} from '../../types/type'
+import { PhoneNumberOptionProps, PhoneNumberSelectProps } from '../../type'
 
 export function DefaultOptionComponent(props: PhoneNumberOptionProps) {
   return <option>{getUnicodeFlagIcon(props.countryCode)}</option>

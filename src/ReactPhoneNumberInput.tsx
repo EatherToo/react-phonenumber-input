@@ -4,9 +4,8 @@ import PhoneNumberInputWrapper from './components/PhoneNumberInputWrapper/PhoneN
 import Select from './components/Select/Select'
 import Input from './components/Input/Input'
 import CallingCode from './components/CallingCode/CallingCode'
-import { ReactPhonenumberInputProps } from './types/type'
+import { ReactPhonenumberInputProps } from './type'
 import BaseReactPhonenumberInput from './components/BaseReactPhoneNumberInput/BaseReactPhoneNumberInput'
-export { CountryCode } from 'libphonenumber-js'
 
 const ReactPhonenumberInput: React.FC<ReactPhonenumberInputProps> = (
   props: ReactPhonenumberInputProps

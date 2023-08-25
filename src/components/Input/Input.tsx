@@ -1,6 +1,6 @@
 import React from 'react'
 import './react-phonenumber-input.css'
-import { PhoneNumberInputElementProps } from '../../types/type'
+import { PhoneNumberInputElementProps } from '../../type'
 
 export default function Input(props: PhoneNumberInputElementProps) {
   return (

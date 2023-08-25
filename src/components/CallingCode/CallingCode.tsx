@@ -1,6 +1,6 @@
 import React from 'react'
 import './PhoneNumberCallingCode.css'
-import { PhoneNumberCallingCodeProps } from '../../types/type'
+import { PhoneNumberCallingCodeProps } from '../../type'
 
 export default function CallingCode(props: PhoneNumberCallingCodeProps) {
   return (

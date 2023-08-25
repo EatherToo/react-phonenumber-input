@@ -1,6 +1,6 @@
 import React from 'react'
 import './PhoneNumberInputWrapper.css'
-import { PhoneNumberInputWrapperProps } from '../../types/type'
+import { PhoneNumberInputWrapperProps } from '../../type'
 
 const PhoneNumberInputWrapper: React.FC<PhoneNumberInputWrapperProps> = (
   props: PhoneNumberInputWrapperProps

@@ -1,12 +1,10 @@
 import React, { useCallback, useState } from 'react'
 import {
   getCountryCallingCode,
-  CountryCode,
   isValidPhoneNumber,
   parsePhoneNumber,
 } from 'libphonenumber-js'
-import { BasePhoneNumberInputProps } from '../../types/type'
-export { CountryCode } from 'libphonenumber-js'
+import { BasePhoneNumberInputProps, CountryCode } from '../../type'
 
 const BaseReactPhonenumberInput: React.FC<BasePhoneNumberInputProps> = (
   props: BasePhoneNumberInputProps
