@@ -6,20 +6,34 @@ import external from 'rollup-plugin-peer-deps-external'
 import postcss from 'rollup-plugin-postcss'
 import rollupPluginDts from 'rollup-plugin-dts'
 
+import glob from 'glob'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+
 const packageJson = require('./package.json')
 
 export default [
   {
-    input: './index.ts',
+    input: Object.fromEntries(
+      glob
+        .sync('./src/**/*.{css,ts,tsx}')
+        .map((file) => [
+          path.relative(
+            'src',
+            file.slice(0, file.length - path.extname(file).length)
+          ),
+          fileURLToPath(new URL(file, import.meta.url)),
+        ])
+    ),
     output: [
       {
-        file: packageJson.main,
+        dir: 'dist/cjs',
         format: 'cjs',
         sourcemap: true,
         name: 'react-phonenumber-input',
       },
       {
-        file: packageJson.module,
+        dir: 'dist/esm',
         format: 'esm',
         sourcemap: true,
       },

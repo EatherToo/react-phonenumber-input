@@ -1,6 +1,6 @@
 export const validateChinesePhoneNumber = (phoneNumber: string): boolean => {
   const mobilePattern = /^1[3-9]\d{9}$/
-  const landlinePattern = /^0[1-9]{2,3}[-]?\d{6,7}$/
+  const landlinePattern = /^0[1-9]{1}\d{1,2}[-]?\d{6,7}$/
 
   return mobilePattern.test(phoneNumber) || landlinePattern.test(phoneNumber)
 }
