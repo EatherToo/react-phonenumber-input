@@ -1,3 +1,5 @@
+import { CountryCode } from '../type'
+
 export const formatChinesePhoneNumber = (phoneNumber: string): string => {
   const cleanedNumber = phoneNumber.replace(/\D/g, '') // 去除非数字字符
   let formattedNumber = ''
@@ -55,3 +57,21 @@ export const formatHongKongPhoneNumber = (phoneNumber: string): string => {
 
   return formattedNumber
 }
+
+type FormatPhoneNumberMap = {
+  [key in CountryCode]: (phoneNumber: string) => string
+}
+
+export const formatPhoneNumber: Partial<FormatPhoneNumberMap> = {
+  CN: formatChinesePhoneNumber,
+  HK: formatHongKongPhoneNumber,
+}
+
+const parsePhoneNumber = (pNo: string, cCode: CountryCode) => {
+  if (!formatPhoneNumber[cCode]) {
+    return pNo
+  }
+  return formatPhoneNumber[cCode]!(pNo)
+}
+
+export default parsePhoneNumber

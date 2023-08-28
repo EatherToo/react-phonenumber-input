@@ -1,10 +1,9 @@
 import React, { useCallback, useState } from 'react'
-import {
-  getCountryCallingCode,
-  isValidPhoneNumber,
-  parsePhoneNumber,
-} from 'libphonenumber-js'
+
 import { BasePhoneNumberInputProps, CountryCode } from '../../type'
+import isValidPhoneNumber from '../../utils/validate'
+import parsePhoneNumber from '../../utils/format'
+import { getCountryCallingCode } from '../../utils/getCountryCallingCode'
 
 const BaseReactPhonenumberInput: React.FC<BasePhoneNumberInputProps> = (
   props: BasePhoneNumberInputProps
@@ -22,10 +21,9 @@ const BaseReactPhonenumberInput: React.FC<BasePhoneNumberInputProps> = (
       setValueInner(pNo)
       if (isValidPhoneNumber(pNo, cCode)) {
         setIsInValid(false)
-        const phonenumber = parsePhoneNumber(pNo, cCode)
-        const formatedPhone = phonenumber.formatNational()
+        const formatedPhone = parsePhoneNumber(pNo, cCode)
         setValueInner(formatedPhone)
-        props.onChange?.(phonenumber.nationalNumber, {
+        props.onChange?.(`+${cCode}${pNo}`, {
           valid: true,
           formated: formatedPhone,
         })
