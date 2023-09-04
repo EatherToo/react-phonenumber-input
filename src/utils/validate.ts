@@ -22,11 +22,11 @@ export const validatePhoneNumber: Partial<ValidatePhoneNumberMap> = {
 }
 
 const isValidPhoneNumber = (pNo: string, cCode: CountryCode) => {
+  const cleanedNumber = pNo.replace(/\D/g, '')
   if (!validatePhoneNumber[cCode]) {
     return true
   }
-
-  return validatePhoneNumber[cCode]!(pNo)
+  return validatePhoneNumber[cCode]!(cleanedNumber)
 }
 
 export default isValidPhoneNumber

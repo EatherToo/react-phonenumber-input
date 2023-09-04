@@ -2,8 +2,8 @@
   "name": "react-phonenumber-input",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "main": "dist/cjs/ReactPhoneNumberInput.js",
+  "module": "dist/esm/ReactPhoneNumberInput.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "jest",

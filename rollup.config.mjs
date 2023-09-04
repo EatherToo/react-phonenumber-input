@@ -10,8 +10,6 @@ import glob from 'glob'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const packageJson = require('./package.json')
-
 export default [
   {
     input: Object.fromEntries(
