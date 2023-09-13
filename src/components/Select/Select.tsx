@@ -4,7 +4,11 @@ import getUnicodeFlagIcon from 'country-flag-icons/unicode'
 import { PhoneNumberOptionProps, PhoneNumberSelectProps } from '../../type'
 
 export function DefaultOptionComponent(props: PhoneNumberOptionProps) {
-  return <option>{getUnicodeFlagIcon(props.countryCode)}</option>
+  return (
+    <option value={props.countryCode}>
+      {getUnicodeFlagIcon(props.countryCode)} {props.countryCode}
+    </option>
+  )
 }
 
 export default function Select(props: PhoneNumberSelectProps) {

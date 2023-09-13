@@ -13,7 +13,7 @@ export type PhoneNumberInputWrapperProps = {
   isInValid?: boolean
 }
 export type ReactPhonenumberInputProps = {
-  countries?: CountryCode[]
+  countries?: CountryCode[] | readonly CountryCode[]
   defaultCountry?: CountryCode
   className?: string
   style?: React.CSSProperties
@@ -32,7 +32,7 @@ export type PhoneNumberInputElementProps = {
   onChange: (value: string) => void
 }
 export type PhoneNumberSelectProps = {
-  countries?: CountryCode[]
+  countries: CountryCode[] | readonly CountryCode[]
   countryCode: CountryCode
   setCountryCode: (c: CountryCode) => void
   onCountryCodeChange?: (c: CountryCode) => void
