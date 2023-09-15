@@ -6,13 +6,7 @@ function App() {
   const [value, setValue] = useState('')
   return (
     <div className="App">
-      <ReactPhonenumberInput
-        style={{
-          width: '280px',
-        }}
-        value={value}
-        onChange={setValue}
-      />
+      <ReactPhonenumberInput value={value} onChange={setValue} />
     </div>
   )
 }

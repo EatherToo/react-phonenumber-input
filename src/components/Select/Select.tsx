@@ -1,8 +1,8 @@
 import { CountryCode } from 'libphonenumber-js/types'
-import React from 'react'
+import React, { useRef } from 'react'
 import getUnicodeFlagIcon from 'country-flag-icons/unicode'
 import { PhoneNumberOptionProps, PhoneNumberSelectProps } from '../../type'
-
+import './Select.css'
 export function DefaultOptionComponent(props: PhoneNumberOptionProps) {
   return (
     <option value={props.countryCode}>
@@ -13,18 +13,20 @@ export function DefaultOptionComponent(props: PhoneNumberOptionProps) {
 
 export default function Select(props: PhoneNumberSelectProps) {
   return (
-    <select
-      value={props.countryCode}
-      onChange={(e) => {
-        const cCode = e.target.value as CountryCode
-        props.setCountryCode(e.target.value as CountryCode)
-        props.onCountryCodeChange?.(cCode)
-      }}
-      className="react-phonenumber-input_select"
-    >
-      {props.countries!.map((c) => {
-        return <DefaultOptionComponent key={c} countryCode={c} />
-      })}
-    </select>
+    <div className="react-phonenumber-input_select-wrapper">
+      <select
+        value={props.countryCode}
+        onChange={(e) => {
+          const cCode = e.target.value as CountryCode
+          props.setCountryCode(e.target.value as CountryCode)
+          props.onCountryCodeChange?.(cCode)
+        }}
+        className="react-phonenumber-input_select"
+      >
+        {props.countries!.map((c) => {
+          return <DefaultOptionComponent key={c} countryCode={c} />
+        })}
+      </select>
+    </div>
   )
 }

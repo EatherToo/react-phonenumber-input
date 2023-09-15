@@ -19,6 +19,7 @@ export type ReactPhonenumberInputProps = {
   style?: React.CSSProperties
   value?: string
   showCallingCode?: boolean
+  placeholder?: string
   onChange?: PhonenumberChangeEventHandle
   onCountryCodeChange?: (c: CountryCode) => void
 }
@@ -29,6 +30,7 @@ export type PhoneNumberCallingCodeProps = {
 
 export type PhoneNumberInputElementProps = {
   value: string
+  placeholder?: string
   onChange: (value: string) => void
 }
 export type PhoneNumberSelectProps = {

@@ -8,6 +8,7 @@ export default function Input(props: PhoneNumberInputElementProps) {
       value={props.value}
       onChange={(e) => props.onChange(e.target.value)}
       className="react-phonenumber-input_input"
+      placeholder={props.placeholder}
     />
   )
 }

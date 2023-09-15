@@ -63,6 +63,7 @@ const BaseReactPhonenumberInput: React.FC<BasePhoneNumberInputProps> = (
         />
       )}
       <props.InputComponent
+        placeholder={props.placeholder}
         value={valueInner}
         onChange={(v) => handlePhonenumberChange(v, countryCode)}
       />

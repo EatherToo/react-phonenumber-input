@@ -14,8 +14,9 @@ export function useParsePhoneNumber(): ParsePhoneNumberFunc {
 
 export function useParsePhoneNumberLibPhoneNumber(): ParsePhoneNumberFunc {
   return useMemoizedFn((pNo: string, cCode: CountryCode) => {
+   
     const parsedPhoneNumber = parsePhoneNumberLibPhoneNumber(
-      getCountryCallingCode(cCode) + pNo
+     '+' + getCountryCallingCode(cCode) + pNo
     )
     return parsedPhoneNumber.formatNational()
   })
