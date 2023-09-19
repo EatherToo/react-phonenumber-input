@@ -21,7 +21,8 @@ export default function Select(props: PhoneNumberSelectProps) {
           props.setCountryCode(e.target.value as CountryCode)
           props.onCountryCodeChange?.(cCode)
         }}
-        className="react-phonenumber-input_select"
+        className={`react-phonenumber-input_select ${props.className || ''}`}
+        style={props.style}
       >
         {props.countries!.map((c) => {
           return <DefaultOptionComponent key={c} countryCode={c} />

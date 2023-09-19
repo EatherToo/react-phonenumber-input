@@ -1,29 +1,39 @@
 import './App.css'
-import ReactPhonenumberInput, {
-  CountryCode,
-  SearchSelect,
-  allCountries,
+import PhonenumberInput, {
+  PhoneNumberInputWithNativeSelect,
 } from 'react-phonenumber-input'
 import { useState } from 'react'
 
 function App() {
   const [value, setValue] = useState('')
-  const [countryCode, setCountryCode] = useState<CountryCode>('CN')
   return (
-    <div className="App">
-      <ReactPhonenumberInput
+    <div
+      className="App"
+      style={{
+        marginTop: '100px',
+      }}
+    >
+      <PhoneNumberInputWithNativeSelect
         value={value}
         onChange={setValue}
         style={{
           width: '200px',
+          margin: 'auto',
         }}
       />
 
-      <SearchSelect
-        countries={allCountries}
-        countryCode={countryCode}
-        onCountryCodeChange={() => {}}
-        setCountryCode={setCountryCode}
+      <div
+        style={{
+          height: '20px',
+        }}
+      ></div>
+      <PhonenumberInput
+        value={value}
+        onChange={setValue}
+        style={{
+          width: '200px',
+          margin: 'auto',
+        }}
       />
     </div>
   )

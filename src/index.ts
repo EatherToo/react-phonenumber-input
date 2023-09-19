@@ -1,4 +1,5 @@
-import ReactPhonenumberInput from './ReactPhoneNumberInput'
+import PhoneNumberInputWithNativeSelect from './PhoneNumberInputWithNativeSelect'
+import PhonenumberInput from './ReactPhoneNumberInput'
 import SearchSelect from './components/SearchSelect/SearchSelect'
 export {
   type PhoneNumberCallingCodeProps,
@@ -14,5 +15,5 @@ export {
 } from './type'
 
 export { SearchSelect }
-
-export default ReactPhonenumberInput
+export { PhoneNumberInputWithNativeSelect }
+export default PhonenumberInput

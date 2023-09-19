@@ -56,6 +56,10 @@ const BaseReactPhonenumberInput: React.FC<BasePhoneNumberInputProps> = (
         countryCode={countryCode}
         setCountryCode={setCountryCode}
         onCountryCodeChange={props.onCountryCodeChange}
+        className={props.selectClassName}
+        style={props.selectStyle}
+        optionClassName={props.optionClassName}
+        optionStyle={props.optionStyle}
       />
       {props.showCallingCode && (
         <props.CallingCodeComponent
@@ -66,6 +70,8 @@ const BaseReactPhonenumberInput: React.FC<BasePhoneNumberInputProps> = (
         placeholder={props.placeholder}
         value={valueInner}
         onChange={(v) => handlePhonenumberChange(v, countryCode)}
+        className={props.inputClassName}
+        style={props.inputStyle}
       />
     </props.WrapperComponent>
   )

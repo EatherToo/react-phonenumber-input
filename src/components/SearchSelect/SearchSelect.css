@@ -3,11 +3,16 @@
   justify-content: space-between;
   align-items: center;
   min-height: 30px;
-  width: 60px;
-  border: 1.5px solid #d5d4dc;
+  width: 53px;
   font-size: 14px;
+  flex-shrink: 0;
+  padding-left: 6px;
+}
+.react-phone-input__search-select__border {
+  border: 1.5px solid #d5d4dc;
   border-radius: 6px;
-  padding: 0 10px;
+  padding-left: 10px;
+  padding-right: 10px;
   cursor: pointer;
 }
 
@@ -82,4 +87,11 @@
   background-color: transparent;
   box-sizing: border-box;
   width: 100%;
+}
+
+.react-phone-input__search-select__arrow {
+  border-left: 0.3em solid transparent;
+  border-right: 0.3em solid transparent;
+  border-top: 0.3em solid #373636;
+  margin-right: 3px;
 }

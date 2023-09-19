@@ -22,6 +22,12 @@ export type ReactPhonenumberInputProps = {
   placeholder?: string
   onChange?: PhonenumberChangeEventHandle
   onCountryCodeChange?: (c: CountryCode) => void
+  inputClassName?: string
+  inputStyle?: React.CSSProperties
+  selectClassName?: string
+  selectStyle?: React.CSSProperties
+  optionClassName?: string
+  optionStyle?: React.CSSProperties
 }
 
 export type PhoneNumberCallingCodeProps = {
@@ -32,14 +38,24 @@ export type PhoneNumberInputElementProps = {
   value: string
   placeholder?: string
   onChange: (value: string) => void
+  className?: string
+  style?: React.CSSProperties
 }
 export type PhoneNumberSelectProps = {
   countries: CountryCode[] | readonly CountryCode[]
   countryCode: CountryCode
   setCountryCode: (c: CountryCode) => void
   onCountryCodeChange?: (c: CountryCode) => void
+  className?: string
+  style?: React.CSSProperties
+  optionClassName?: string
+  optionStyle?: React.CSSProperties
 }
-export type PhoneNumberOptionProps = { countryCode: CountryCode }
+export type PhoneNumberOptionProps = {
+  countryCode: CountryCode
+  className?: string
+  style?: React.CSSProperties
+}
 
 export type BasePhoneNumberInputProps = ReactPhonenumberInputProps & {
   SelectComponent: React.ComponentType<PhoneNumberSelectProps>

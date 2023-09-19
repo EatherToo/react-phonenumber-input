@@ -10,9 +10,10 @@
   font-size: inherit;
   cursor: inherit;
   line-height: inherit;
-  width: 54px;
+  width: 60px;
   position: relative;
   z-index: 1;
+  padding-left: 6px;
 }
 .react-phonenumber-input_select-wrapper {
   position: relative;
