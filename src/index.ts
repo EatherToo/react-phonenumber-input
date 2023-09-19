@@ -1,4 +1,5 @@
 import ReactPhonenumberInput from './ReactPhoneNumberInput'
+import SearchSelect from './components/SearchSelect/SearchSelect'
 export {
   type PhoneNumberCallingCodeProps,
   type PhonenumberChangeEventHandle,
@@ -11,5 +12,7 @@ export {
   type CountryCode,
   allCountries,
 } from './type'
+
+export { SearchSelect }
 
 export default ReactPhonenumberInput

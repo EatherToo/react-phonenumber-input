@@ -544,3 +544,12 @@ export const allCountries: readonly CountryCode[] = Object.freeze([
   'ZM',
   'ZW',
 ])
+
+export const CountryCodeToLanguageMap: Partial<{
+  [key in CountryCode]: string
+}> = Object.freeze({
+  CN: 'zh-CN',
+  TW: 'zh-TW',
+  HK: 'zh-HK',
+  US: 'en-US',
+})

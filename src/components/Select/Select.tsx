@@ -1,5 +1,5 @@
 import { CountryCode } from 'libphonenumber-js/types'
-import React, { useRef } from 'react'
+import React from 'react'
 import getUnicodeFlagIcon from 'country-flag-icons/unicode'
 import { PhoneNumberOptionProps, PhoneNumberSelectProps } from '../../type'
 import './Select.css'

@@ -1,0 +1,85 @@
+.react-phone-input__search-select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 30px;
+  width: 60px;
+  border: 1.5px solid #d5d4dc;
+  font-size: 14px;
+  border-radius: 6px;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.react-phone-input__search-select span {
+  user-select: none;
+}
+
+.react-phone-input__search-select__options-wrapper {
+  background-color: #ffffff;
+  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+    0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 6px;
+  min-width: 240px;
+  max-height: 272px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.react-phonenumber__search-select__scroll {
+  overflow-y: overlay;
+  max-height: 242px;
+  box-sizing: border-box;
+}
+.react-phone-input__search-select__option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 6px;
+  min-height: 32px;
+  padding: 0 8px;
+}
+.react-phone-input__search-select__option:hover {
+  background-color: #ece9e9;
+}
+
+.react-phone-input__search-select__active {
+  background-color: #cde6f0;
+}
+.react-phone-input__search-select__active:hover {
+  background-color: #b2dbeb;
+}
+.react-phonenumber__search-select__scroll::-webkit-scrollbar {
+  display: block;
+  width: 6px;
+  height: 0;
+  background-color: #f1f1f1;
+}
+.react-phonenumber__search-select__scroll::-webkit-scrollbar-thumb {
+  display: block;
+  width: 6px;
+  height: 0;
+  background-color: #9b9999;
+  border-radius: 3px;
+}
+.react-phonenumber__search-select__input-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  border-bottom: 1px solid #d5d4dc;
+}
+.react-phonenumber__search-select__input {
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 2px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+  background-color: transparent;
+  box-sizing: border-box;
+  width: 100%;
+}
