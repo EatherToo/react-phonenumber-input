@@ -1,6 +1,6 @@
 {
   "name": "react-phonenumber-text-input",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "an international phone number input component for React.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -25,9 +25,10 @@
   "homepage": "https://github.com/EatherToo/react-phonenumber-input",
   "files": [
     "dist",
-    "readme.md",
+    "README.md",
     "docs"
   ],
+  "readme": "README.md",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.1",

@@ -3,7 +3,8 @@
 <b>an international phone number input component for React.</b>
 
 ![image](./docs/iShot_2023-09-20_11.12.09.png)
-[example](./example/src/App.tsx)
+
+### [online demo](https://codesandbox.io/s/agitated-hill-trvmxc?file=/src/App.tsx)
 
 ### Install
 

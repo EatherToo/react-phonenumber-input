@@ -1,6 +1,8 @@
 import PhoneNumberInputWithNativeSelect from './PhoneNumberInputWithNativeSelect'
 import PhonenumberInput from './ReactPhoneNumberInput'
 import SearchSelect from './components/SearchSelect/SearchSelect'
+import BaseReactPhonenumberInput from './components/BaseReactPhoneNumberInput/BaseReactPhoneNumberInput'
+
 export {
   type PhoneNumberCallingCodeProps,
   type PhonenumberChangeEventHandle,
@@ -14,6 +16,17 @@ export {
   allCountries,
 } from './type'
 
+export { getCountryCallingCode } from './utils/getCountryCallingCode'
+export {
+  formatChinesePhoneNumber,
+  formatHongKongPhoneNumber,
+} from './utils/format'
+export {
+  validateChinesePhoneNumber,
+  validateHongKongPhoneNumber,
+} from './utils/validate'
+
 export { SearchSelect }
 export { PhoneNumberInputWithNativeSelect }
+export { BaseReactPhonenumberInput }
 export default PhonenumberInput

@@ -10,9 +10,11 @@
     "@types/node": "^16.18.14",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "antd": "^5.9.2",
+    "country-flag-icons": "^1.5.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-phonenumber-input": "file:../",
+    "react-phonenumber-text-input": "file:../",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
