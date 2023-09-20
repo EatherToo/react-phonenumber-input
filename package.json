@@ -1,6 +1,6 @@
 {
   "name": "react-phonenumber-text-input",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "an international phone number input component for React.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
