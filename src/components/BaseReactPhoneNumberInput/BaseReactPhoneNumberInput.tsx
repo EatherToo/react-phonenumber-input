@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 
 import { getCountryCallingCode } from '../../utils/getCountryCallingCode'
 import { useCheckPhoneValidLibPhoneNumber } from '../../hooks/checkValid'
@@ -13,7 +13,9 @@ const BaseReactPhonenumberInput: React.FC<BasePhoneNumberInputProps> = (
   props: BasePhoneNumberInputProps
 ) => {
   const [valueInner, setValueInner] = useState(props.value || '')
-  const [countryCode, setCountryCode] = useState(props.defaultCountry!)
+  const [countryCode, setCountryCode] = useState(
+    props.defaultCountry || props.countries![0]
+  )
   const [isInValid, setIsInValid] = useState(false)
 
   const isValidPhoneNumber = useCheckPhoneValidLibPhoneNumber()
@@ -30,21 +32,26 @@ const BaseReactPhonenumberInput: React.FC<BasePhoneNumberInputProps> = (
         setIsInValid(false)
         const formatedPhone = parsePhoneNumber(pNo, cCode)
         setValueInner(formatedPhone)
-        props.onChange?.(`+${cCode}${pNo}`, {
+        props.onChange?.(pNo, {
           valid: true,
           formated: formatedPhone,
+          fullValue: '+' + getCountryCallingCode(cCode) + pNo,
         })
       } else {
-        setIsInValid(true)
+        setIsInValid(pNo ? true : false)
         props.onChange?.(pNo, {
           valid: false,
           formated: '',
+          fullValue: '+' + getCountryCallingCode(cCode) + pNo,
         })
       }
     },
     []
   )
 
+  useEffect(() => {
+    handlePhonenumberChange(props.value!, countryCode)
+  }, [props.value, countryCode])
   return (
     <props.WrapperComponent
       style={props.style}
@@ -78,7 +85,6 @@ const BaseReactPhonenumberInput: React.FC<BasePhoneNumberInputProps> = (
 }
 BaseReactPhonenumberInput.defaultProps = {
   countries: allCountries,
-  defaultCountry: 'CN',
   showCallingCode: true,
 }
 

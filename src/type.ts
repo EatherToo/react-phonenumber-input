@@ -2,6 +2,7 @@ export type PhonenumberChangeEventHandle = (
   v: string,
   options: {
     formated: string
+    fullValue: string
     valid: boolean
   }
 ) => void
