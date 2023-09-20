@@ -10,9 +10,24 @@
     "build": "rollup -c --bundleConfigAsCjs",
     "dev": "rollup -c --bundleConfigAsCjs -w"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "react",
+    "react-component",
+    "react-phone-number-input",
+    "react-phone-number-input-component"
+  ],
+  "author": "EatherToo",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EatherToo/react-phonenumber-input"
+  },
+  "homepage": "https://github.com/EatherToo/react-phonenumber-input",
+  "files": [
+    "dist",
+    "readme.md",
+    "docs"
+  ],
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.1",
