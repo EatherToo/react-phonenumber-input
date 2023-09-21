@@ -159,11 +159,16 @@
    | optionStyle         | React.CSSProperties                                                                        | undfined                         | the style of the country code selection dropdown option (invalid for PhoneNumberInputWithNativeSelect)                                                                                                                                                |
 
 4. custom style
+
    - basic
      - use `className` and `style` props to custom the style of the phone number input container
      - use `inputClassName` and `inputStyle` props to custom the style of the input
      - use `selectClassName` and `selectStyle` props to custom the style of the country code selection dropdown
      - use `optionClassName` and `optionStyle` props to custom the style of the country code selection dropdown option (invalid for PhoneNumberInputWithNativeSelect)
    - advanced
-     use BaseReactPhonenumberInput
-     BaseReactPhonenumberInput has for extra props: `SelectComponent` `CallingCodeComponent` `InputComponent` `WrapperComponent`
+     use BaseReactPhonenumberInput (see detail on [online demo](https://codesandbox.io/s/agitated-hill-trvmxc?file=/src/App.tsx))
+     BaseReactPhonenumberInput has four extra props:
+     - `SelectComponent`
+     - `CallingCodeComponent`
+     - `InputComponent`
+     - `WrapperComponent`
