@@ -1,5 +1,5 @@
-import React, { useEffect, useLayoutEffect, useMemo, useState } from 'react'
-import { CountryCode, CountryCodeToLanguageMap } from '../../type'
+import React, { useLayoutEffect, useMemo, useState } from 'react'
+import { CountryCode } from '../../type'
 import getUnicodeFlagIcon from 'country-flag-icons/unicode'
 import { getCountryCallingCode } from '../../utils/getCountryCallingCode'
 
@@ -22,7 +22,7 @@ const SelectOptionsWrapper = (props: {
           onClick={(e) => e.stopPropagation()}
           onChange={(e) => props.onSearch?.(e.target.value)}
           className="react-phonenumber__search-select__input"
-          placeholder='search countries (e.g. "CN" or "+86")'
+          placeholder='search countries (e.g. "CN", "China" or "+86")'
         />
         <svg
           viewBox="64 64 896 896"
@@ -80,6 +80,13 @@ const Option = (props: {
   )
 }
 
+const DisplayNames = new Intl.DisplayNames([navigator.language], {
+  type: 'region',
+})
+const DisplayNamesEn = new Intl.DisplayNames(['en'], {
+  type: 'region',
+})
+
 const SelectOptions = (props: {
   countries: CountryCode[] | readonly CountryCode[]
   activeCountry?: CountryCode
@@ -99,7 +106,9 @@ const SelectOptions = (props: {
       const code = getCountryCallingCode(c)
       return (
         code.startsWith(_search) ||
-        c.toLowerCase().startsWith(_search.toLowerCase())
+        c.toLowerCase().startsWith(_search.toLowerCase()) ||
+        DisplayNames.of(c)?.toLowerCase().includes(_search.toLowerCase()) ||
+        DisplayNamesEn.of(c)?.toLowerCase().includes(_search.toLowerCase())
       )
     })
   }, [search, props.countries])
@@ -116,9 +125,7 @@ const SelectOptions = (props: {
               <>
                 {getUnicodeFlagIcon(c)} &nbsp; +{getCountryCallingCode(c)}
                 &nbsp;
-                {new Intl.DisplayNames([CountryCodeToLanguageMap[c] || c], {
-                  type: 'region',
-                }).of(c)}
+                {DisplayNames.of(c)}
               </>
             }
             active={c === props.activeCountry}
