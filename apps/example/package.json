@@ -14,7 +14,7 @@
     "country-flag-icons": "^1.5.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-phonenumber-text-input": "file:../",
+    "react-phonenumber-text-input": "workspace:*",
     "react-scripts": "5.0.1",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"

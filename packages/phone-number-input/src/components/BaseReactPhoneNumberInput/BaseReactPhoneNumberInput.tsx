@@ -12,11 +12,13 @@ import {
 const BaseReactPhonenumberInput: React.FC<BasePhoneNumberInputProps> = (
   props: BasePhoneNumberInputProps
 ) => {
+  const { countries = allCountries, showCallingCode = true } = props
+
   const [valueInner, setValueInner] = useState(props.value || '')
   const [countryCode, setCountryCode] = useState(
-    props.defaultCountry || props.countries![0]
+    props.defaultCountry || countries![0]
   )
-  const [isInValid, setIsInValid] = useState(false)
+  const [isInValid, setIsInvalid] = useState(false)
 
   const isValidPhoneNumber = useCheckPhoneValidLibPhoneNumber()
   const parsePhoneNumber = useParsePhoneNumberLibPhoneNumber()
@@ -29,7 +31,8 @@ const BaseReactPhonenumberInput: React.FC<BasePhoneNumberInputProps> = (
     (pNo: string, cCode: CountryCode) => {
       setValueInner(pNo)
       if (isValidPhoneNumber(pNo, cCode)) {
-        setIsInValid(false)
+        debugger
+        setIsInvalid(false)
         const formatedPhone = parsePhoneNumber(pNo, cCode)
         setValueInner(formatedPhone)
         props.onChange?.(pNo, {
@@ -38,7 +41,7 @@ const BaseReactPhonenumberInput: React.FC<BasePhoneNumberInputProps> = (
           fullValue: '+' + getCountryCallingCode(cCode) + pNo,
         })
       } else {
-        setIsInValid(pNo ? true : false)
+        setIsInvalid(pNo ? true : false)
         props.onChange?.(pNo, {
           valid: false,
           formated: '',
@@ -50,7 +53,13 @@ const BaseReactPhonenumberInput: React.FC<BasePhoneNumberInputProps> = (
   )
 
   useEffect(() => {
-    handlePhonenumberChange(props.value!, countryCode)
+    if (props.value === valueInner) {
+      return
+    }
+    if (props.value !== undefined) {
+      setValueInner(props.value)
+      handlePhonenumberChange(props.value, countryCode)
+    }
   }, [props.value, countryCode])
   return (
     <props.WrapperComponent
@@ -59,7 +68,7 @@ const BaseReactPhonenumberInput: React.FC<BasePhoneNumberInputProps> = (
       className={props.className}
     >
       <props.SelectComponent
-        countries={props.countries!}
+        countries={countries!}
         countryCode={countryCode}
         setCountryCode={setCountryCode}
         onCountryCodeChange={props.onCountryCodeChange}
@@ -68,7 +77,7 @@ const BaseReactPhonenumberInput: React.FC<BasePhoneNumberInputProps> = (
         optionClassName={props.optionClassName}
         optionStyle={props.optionStyle}
       />
-      {props.showCallingCode && (
+      {showCallingCode && (
         <props.CallingCodeComponent
           callingCode={'+' + getCountryCallingCode(countryCode)}
         />
@@ -82,10 +91,6 @@ const BaseReactPhonenumberInput: React.FC<BasePhoneNumberInputProps> = (
       />
     </props.WrapperComponent>
   )
-}
-BaseReactPhonenumberInput.defaultProps = {
-  countries: allCountries,
-  showCallingCode: true,
 }
 
 export default BaseReactPhonenumberInput
