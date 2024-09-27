@@ -31,15 +31,24 @@ const BaseReactPhonenumberInput: React.FC<BasePhoneNumberInputProps> = (
     (pNo: string, cCode: CountryCode) => {
       setValueInner(pNo)
       if (isValidPhoneNumber(pNo, cCode)) {
-        debugger
         setIsInvalid(false)
-        const formatedPhone = parsePhoneNumber(pNo, cCode)
-        setValueInner(formatedPhone)
+        const {
+          countyCallingCode,
+          nationalNumber,
+          formattedNationalNumber,
+          countryCode: parsedCountryCode,
+        } = parsePhoneNumber(pNo, cCode)
+        setValueInner(formattedNationalNumber)
         props.onChange?.(pNo, {
           valid: true,
-          formated: formatedPhone,
-          fullValue: '+' + getCountryCallingCode(cCode) + pNo,
+          formated: formattedNationalNumber,
+          fullValue: '+' + countyCallingCode + nationalNumber,
         })
+
+        if (countryCode !== parsedCountryCode) {
+          setCountryCode(parsedCountryCode)
+          props.onCountryCodeChange?.(parsedCountryCode)
+        }
       } else {
         setIsInvalid(pNo ? true : false)
         props.onChange?.(pNo, {

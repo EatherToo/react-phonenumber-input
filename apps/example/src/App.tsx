@@ -8,7 +8,7 @@ import PhoneNumberInputWrapper from './components/PhoneNumberSelectWrapper'
 import PhonenumberInput, {
   BaseReactPhonenumberInput,
   PhoneNumberInputWithNativeSelect,
-} from 'react-phonenumber-text-input'
+} from 'react-phonenumber-text-input/src/index'
 
 function App() {
   const [value, setValue] = useState('')

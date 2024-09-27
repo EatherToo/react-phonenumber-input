@@ -6,18 +6,36 @@ import {
   parsePhoneNumber as parsePhoneNumberLibPhoneNumber,
 } from 'libphonenumber-js'
 
-type ParsePhoneNumberFunc = (pNo: string, cCode: CountryCode) => string
-
-export function useParsePhoneNumber(): ParsePhoneNumberFunc {
-  return parsePhoneNumber
+type ParsePhoneNumberFunc = (
+  pNo: string,
+  cCode: CountryCode
+) => {
+  countyCallingCode: string
+  countryCode: CountryCode
+  nationalNumber: string
+  formattedNationalNumber: string
 }
 
 export function useParsePhoneNumberLibPhoneNumber(): ParsePhoneNumberFunc {
   return useMemoizedFn((pNo: string, cCode: CountryCode) => {
-   
+    if (pNo.startsWith('+')) {
+      const parsedPhoneNumber = parsePhoneNumberLibPhoneNumber(pNo)
+      return {
+        countyCallingCode: parsedPhoneNumber.countryCallingCode,
+        countryCode: parsedPhoneNumber.country || cCode,
+        nationalNumber: parsedPhoneNumber.nationalNumber,
+        formattedNationalNumber: parsedPhoneNumber.formatNational(),
+      }
+    }
+
     const parsedPhoneNumber = parsePhoneNumberLibPhoneNumber(
-     '+' + getCountryCallingCode(cCode) + pNo
+      '+' + getCountryCallingCode(cCode) + pNo
     )
-    return parsedPhoneNumber.formatNational()
+    return {
+      countyCallingCode: parsedPhoneNumber.countryCallingCode,
+      countryCode: parsedPhoneNumber.country || cCode,
+      nationalNumber: parsedPhoneNumber.nationalNumber,
+      formattedNationalNumber: parsedPhoneNumber.formatNational(),
+    }
   })
 }
