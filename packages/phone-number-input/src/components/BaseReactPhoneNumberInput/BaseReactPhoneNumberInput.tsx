@@ -14,7 +14,7 @@ const BaseReactPhonenumberInput: React.FC<BasePhoneNumberInputProps> = (
 ) => {
   const { countries = allCountries, showCallingCode = true } = props
 
-  const [valueInner, setValueInner] = useState(props.value || '')
+  const [valueInner, setValueInner] = useState('')
   const [countryCode, setCountryCode] = useState(
     props.defaultCountry || countries![0]
   )
