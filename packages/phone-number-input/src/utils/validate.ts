@@ -1,6 +1,14 @@
 import { CountryCode } from '../type'
 
 export const validateChinesePhoneNumber = (phoneNumber: string): boolean => {
+  if (phoneNumber.startsWith('+86')) {
+    phoneNumber = phoneNumber.slice(3)
+  }
+
+  if (phoneNumber.startsWith('86')) {
+    phoneNumber = phoneNumber.slice(2)
+  }
+
   const mobilePattern = /^1[3-9]\d{9}$/
   const landlinePattern = /^0[1-9]{1}\d{1,2}[-]?\d{6,7}$/
 
